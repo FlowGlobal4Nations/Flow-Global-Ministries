@@ -99,6 +99,25 @@
   nav.links a:hover{color:var(--gold);}
   nav.links a.nav-highlight{color:var(--gold-light);}
   nav.links a.nav-highlight::after{background:var(--gold-light);}
+  
+  /* ---------- Nav dropdown ---------- */
+  .nav-dropdown{position:relative;display:inline-flex;align-items:center;}
+  .nav-dropdown > a{display:inline-flex;align-items:center;gap:4px;}
+  .nav-dropdown .caret{font-size:9px;opacity:.7;transition:transform .2s ease;}
+  .nav-dropdown:hover .caret{transform:rotate(180deg);}
+  .nav-dropdown-menu{
+    position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(6px);
+    background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);
+    min-width:260px;padding:10px 0;box-shadow:0 20px 40px rgba(0,0,0,.55);
+    opacity:0;visibility:hidden;pointer-events:none;
+    transition:opacity .18s ease, transform .18s ease;z-index:60;
+  }
+  .nav-dropdown:hover .nav-dropdown-menu{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);}
+  .nav-dropdown-menu a{
+    display:block;padding:10px 20px;font-size:12.5px;font-weight:600;letter-spacing:.03em;
+    text-transform:none;color:#e9e2d0;white-space:nowrap;
+  }
+  .nav-dropdown-menu a:hover{color:var(--gold);background:rgba(212,175,55,.08);}
   .nav-cta{display:flex;align-items:center;gap:16px;}
   .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
   .hamburger span{width:26px;height:2px;background:var(--gold);}
@@ -464,9 +483,21 @@
         <a href="index.html">Home</a>
         <a href="index.html">About</a>
         <a href="index.html#gatherings">When + Where</a>
-        <a href="index.html#help">Resources</a>
+        <div class="nav-dropdown">
+          <a href="index.html#help">Resources <span class="caret">&#9662;</span></a>
+          <div class="nav-dropdown-menu">
+          <a href="booking-bold-dark.html?service=Apostolic%20Training#book-form">Apostolic Training</a>
+          <a href="booking-bold-dark.html?service=Prophetic%20Training#book-form">Prophetic Training</a>
+          <a href="booking-bold-dark.html?service=Marriage%20Christian%20Counseling#book-form">Marriage Christian Counseling</a>
+          <a href="booking-bold-dark.html?service=Family%20Christian%20Counseling#book-form">Family Christian Counseling</a>
+          <a href="booking-bold-dark.html?service=Christian%20Counseling#book-form">Christian Counseling</a>
+          <a href="booking-bold-dark.html?service=Financial#book-form">Financial</a>
+          <a href="booking-bold-dark.html?service=Health%20Christian%20Counseling#book-form">Health Christian Counseling</a>
+          </div>
+        </div>
         <a href="index.html#give">Give</a>
         <a href="index.html#contact">Contact</a>
+        <a href="booking-bold-dark.html">Booking</a>
         <a href="https://flowglobaluniversity.org" target="_blank" rel="noopener" class="nav-highlight">Online Classes</a>
         <a href="flow-merch-bold-dark.html" class="nav-highlight" aria-current="page">Flow Merch</a>
       </nav>
